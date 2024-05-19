@@ -1,0 +1,8 @@
+[package]
+name = "rust_code_test_coverage_profile"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cargo-tarpaulin = { version = "0.30.0", features = ["vendored-openssl"] }
+flamegraph = "0.6.5"
