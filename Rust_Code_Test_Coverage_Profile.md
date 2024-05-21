@@ -20,7 +20,7 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=jammy
 ```
 
-## My rust version at creation this markdown
+## My rust version at creation this project
 
 ```bash
 rustup show
@@ -71,24 +71,24 @@ ryanluker.vscode-coverage-gutters
 > [!NOTE]
 > [Update rust to latest stable version](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md)
 
-## Install crates to be used in this project
+## Instal crates to be used in this project
 
-- I'm use [cargo edit](https://crates.io/crates/cargo-edit)[my tut](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md#install-cargo-edit) for install additional package
+- I'm use [cargo edit](https://crates.io/crates/cargo-edit), show my [tutorial](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md#install-cargo-edit) for install additional package
 
 ```bash
-# update crates
+# update all project crates
 cargo update
 # install cargo-tarpaulin
 cargo add cargo-tarpaulin
 # /w features
-cargo add --features  vendored-openssl cargo-tarpaulin
+cargo add --features vendored-openssl cargo-tarpaulin
 # install flamegraph
 cargo add flamegraph
 # show version of dependencies and current version vs. akt. version
 cargo update --verbose
 ```
 
-## first easy testcase
+## first testcase
 
 ```rust
 #!/usr/bin/env bash
@@ -142,7 +142,9 @@ EoF
 --target-dir target/tarpaulin-target/
 ```
 
-## run tarpaulin with the test inside the examples folder
+## run all test inside the examples folder
+
+- add ```--example```
 
 ```bash
 cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clean --out Lcov --example
@@ -156,4 +158,11 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 
 ## I'm use
 
-![Hello World](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAAAAAAVAxSkAAABrUlEQVQ4y+3TPUvDQBgH8OdDOGa+oUMgk2MpdHIIgpSUiqC0OKirgxYX8QVFRQRpBRF8KShqLbgIYkUEteCgFVuqUEVxEIkvJFhae3m8S2KbSkcFBw9yHP88+eXucgH8kQZ/jSm4VDaIy9RKCpKac9NKgU4uEJNwhHhK3qvPBVO8rxRWmFXPF+NSM1KVMbwriAMwhDgVcrxeMZm85GR0PhvGJAAmyozJsbsxgNEir4iEjIK0SYqGd8sOR3rJAGN2BCEkOxhxMhpd8Mk0CXtZacxi1hr20mI/rzgnxayoidevcGuHXTC/q6QuYSMt1jC+gBIiMg12v2vb5NlklChiWnhmFZpwvxDGzuUzV8kOg+N8UUvNBp64vy9q3UN7gDXhwWLY2nMC3zRDibfsY7wjEkY79CdMZhrxSqqzxf4ZRPXwzWJirMicDa5KwiPeARygHXKNMQHEy3rMopDR20XNZGbJzUtrwDC/KshlLDWyqdmhxZzCsdYmf2fWZPoxCEDyfIvdtNQH0PRkH6Q51g8rFO3Qzxh2LbItcDCOpmuOsV7ntNaERe3v/lP/zO8yn4N+yNPrekmPAAAAAElFTkSuQmCC)
+```markdown
+![image](data:image/png;base64,<BASE64_HERE>)
+```
+
+![image](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAAAAAAVAxSkAAABrUlEQVQ4y+3TPUvDQBgH8OdDOGa+oUMgk2MpdHIIgpSUiqC0OKirgxYX8QVFRQRpBRF8KShqLbgIYkUEteCgFVuqUEVxEIkvJFhae3m8S2KbSkcFBw9yHP88+eXucgH8kQZ/jSm4VDaIy9RKCpKac9NKgU4uEJNwhHhK3qvPBVO8rxRWmFXPF+NSM1KVMbwriAMwhDgVcrxeMZm85GR0PhvGJAAmyozJsbsxgNEir4iEjIK0SYqGd8sOR3rJAGN2BCEkOxhxMhpd8Mk0CXtZacxi1hr20mI/rzgnxayoidevcGuHXTC/q6QuYSMt1jC+gBIiMg12v2vb5NlklChiWnhmFZpwvxDGzuUzV8kOg+N8UUvNBp64vy9q3UN7gDXhwWLY2nMC3zRDibfsY7wjEkY79CdMZhrxSqqzxf4ZRPXwzWJirMicDa5KwiPeARygHXKNMQHEy3rMopDR20XNZGbJzUtrwDC/KshlLDWyqdmhxZzCsdYmf2fWZPoxCEDyfIvdtNQH0PRkH6Q51g8rFO3Qzxh2LbItcDCOpmuOsV7ntNaERe3v/lP/zO8yn4N+yNPrekmPAAAAAElFTkSuQmCC)
+
+convert ./test_pictures.png -resize 33% ./out.png
+base64 ./out.png
