@@ -165,7 +165,10 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 [FROM HERE](https://stackoverflow.com/questions/66732520/insert-inline-images-in-readme-md)
 
 [FORM HERE](https://blog.peterritchie.com/posts/data-urls-in-markdown)
-![a red dot](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==)
+
+![a red dot][red-dot]
+
+[red-dot]:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==
 
 convert ./test_pictures.png -resize 33% ./out.png
 base64 ./out.png
