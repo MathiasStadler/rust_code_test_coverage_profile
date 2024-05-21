@@ -5,7 +5,7 @@
 ## My project platform
 
 ```bash
-cat /etc/os-release 
+cat /etc/os-release
 PRETTY_NAME="Ubuntu 22.04.4 LTS"
 NAME="Ubuntu"
 VERSION_ID="22.04"
@@ -58,18 +58,15 @@ ryanluker.vscode-coverage-gutters
 
 ## Project setup
 
-> [!NOTE]
-> [Project Setup From Here](https://github.com/MathiasStadler/repo_template/blob/main/includes/extract_scripts_from_markdown.md)
+> [!NOTE] > [Project Setup From Here](https://github.com/MathiasStadler/repo_template/blob/main/includes/extract_scripts_from_markdown.md)
 
 &nbsp;
 
-> [!TIP]
-> [How to set json with comment in MS Video Studio Code](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md)
+> [!TIP] > [How to set json with comment in MS Video Studio Code](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md)
 
 &nbsp;
 
-> [!NOTE]
-> [Update rust to latest stable version](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md)
+> [!NOTE] > [Update rust to latest stable version](https://github.com/MathiasStadler/repo_template/blob/main/includes/update_rust_add_crates_to_last_version.md)
 
 ## Instal crates to be used in this project
 
@@ -135,16 +132,30 @@ EoF
 ## use simple test coverage
 
 > [!TIP]
-> a toolchain/build target its own target directory ``` --target-dir ```
+> a toolchain/build target its own target directory `--target-dir`
 > avoid project new compiling for each new test run after small change inside test
 
 ```bash
 --target-dir target/tarpaulin-target/
 ```
 
+## I'm ignore all testcase
+
+- add
+
+```bash
+--ignore-tests
+```
+
 ## run all test inside the examples folder
 
-- add ```--example``` to command
+- add command line
+
+```bash
+--example
+```
+
+- command
 
 ```bash
 cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clean --out Lcov --example
@@ -159,6 +170,56 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 ## I'm use to show coverage inside code via vscode plugin - Coverage Gutters v2.11.1
 
 ![Alt text](./images/coverage_clutter_vscode_plugin.gif)
+
+## profile code /w plugin [flamegraph](https://www.brendangregg.com/flamegraphs.html)
+
+### [install crates flamegraph](#instal-crates-to-be-used-in-this-project)
+
+> [!NOTE]
+> HERE CONTINUE
+
+### [install linux-perf](https://github.com/flamegraph-rs/flamegraph)
+
+### check already installed
+
+```bash
+apt update
+apt list --installed linux-tools-`uname -r`
+apt list --installed linux-tools-common
+apt list --installed linux-tools-generic
+```
+
+### if NOT installed
+
+```bash
+apt update
+sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+```
+
+### Enabling perf for use by unprivileged users
+
+> [!NOTE]
+> To enable perf without running as root,
+> you may lower the perf_event_paranoid value in proc
+> to an appropriate level for your environment.
+> The most permissive value is -1 but may not
+> be acceptable for your security needs etc.
+
+```bash
+echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
+```
+
+
+### run [flamegraph](https://github.com/flamegraph-rs/flamegraph)
+
+- by default, `--release` profile is used,
+- but you can override this:
+
+```bash
+cargo flamegraph --dev
+```
+
+## garbage
 
 [FROM HERE](https://stackoverflow.com/questions/66732520/insert-inline-images-in-readme-md)
 
