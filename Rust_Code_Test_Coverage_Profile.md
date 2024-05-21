@@ -170,5 +170,7 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 
 [red-dot]:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==
 
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII
+
 convert ./test_pictures.png -resize 33% ./out.png
 base64 ./out.png
