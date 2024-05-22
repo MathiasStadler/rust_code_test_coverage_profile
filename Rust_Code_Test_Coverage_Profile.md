@@ -249,6 +249,15 @@ cargo flamegraph --dev
 
 > [!TIP]
 > [Tutorial about perf install/using](http://lost-and-found-narihiro.blogspot.com/2012/06/how-to-install-perf-kernel-performance.html)
+&nbsp;
+> [!NOTE]
+> Cannot load tips.txt file, please install perf!
+> [How to get perf fully working with all features?](https://askubuntu.com/questions/1171494/how-to-get-perf-fully-working-with-all-features)
+
+```bash
+mkdir -p /usr/share/doc/perf-tip && \
+wget https://raw.githubusercontent.com/torvalds/linux/master/tools/perf/Documentation/tips.txt -O /usr/share/doc/perf-tip/tips.txt
+```
 
 ## garbage
 
