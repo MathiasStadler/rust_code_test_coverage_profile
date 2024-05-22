@@ -1,10 +1,15 @@
 {
     "cSpell.words": [
         "flamegraph",
+        "kallsyms",
+        "kexec",
+        "kptr",
         "Lcov",
+        "misresolved",
         "println",
         "rustc",
         "ryanluker",
-        "trapapa"
+        "trapapa",
+        "vmlinux"
     ]
 }

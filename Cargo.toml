@@ -6,3 +6,6 @@ edition = "2021"
 [dependencies]
 cargo-tarpaulin = { version = "0.30.0", features = ["vendored-openssl"] }
 flamegraph = "0.6.5"
+
+[profile.release]
+debug = true

@@ -183,7 +183,6 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 ### check already installed
 
 ```bash
-apt update
 apt list --installed linux-tools-`uname -r`
 apt list --installed linux-tools-common
 apt list --installed linux-tools-generic
@@ -192,7 +191,7 @@ apt list --installed linux-tools-generic
 ### if NOT installed
 
 ```bash
-apt update
+sudo apt update
 sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r`
 ```
 
@@ -206,18 +205,41 @@ sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r`
 > be acceptable for your security needs etc.
 
 ```bash
-echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
+cat /proc/sys/kernel/perf_event_paranoid
+sudo echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
 ```
-
 
 ### run [flamegraph](https://github.com/flamegraph-rs/flamegraph)
 
 - by default, `--release` profile is used,
+
+```bash
+# --target-dir target/flamegraph-target/
+cargo flamegraph
+```
+
 - but you can override this:
 
 ```bash
 cargo flamegraph --dev
 ```
+
+> [!NOTE]
+> [Samples in kernel modules won't be resolved at all.](https://stackoverflow.com/questions/21284906/perf-couldnt-record-kernel-reference-relocation-symbol)
+> If some relocation was applied (e.g. kexec) symbols may be misresolved
+> even with a suitable vmlinux or kallsyms file.
+> Couldn't record kernel reference relocation symbol
+> Symbol resolution may be skewed if relocation was used (e.g. kexec).
+> Check /proc/kallsyms permission or run as root.
+> CHANGE IT to use is for normal user NOT root
+>
+> ```bash
+> # show value
+> echo 0 | sudo tee /proc/sys/kernel/kptr_restrict
+> # set value to 0
+> echo 0 | sudo tee /proc/sys/kernel/kptr_restrict
+>```
+>
 
 ## garbage
 

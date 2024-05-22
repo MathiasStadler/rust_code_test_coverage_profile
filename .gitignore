@@ -4,3 +4,6 @@
 /run_examples/*sh
 /run_all_examples/*sh
 *.profraw
+*.old
+*.svg
+*.data
