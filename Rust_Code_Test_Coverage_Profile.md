@@ -171,6 +171,10 @@ cargo tarpaulin --ignore-tests --target-dir target/tarpaulin-target/ --skip-clea
 
 ![Alt text](./images/coverage_clutter_vscode_plugin.gif)
 
+## second testcase
+
+
+
 ## profile code /w plugin [flamegraph](https://www.brendangregg.com/flamegraphs.html)
 
 ### [install crates flamegraph](#instal-crates-to-be-used-in-this-project)
@@ -240,6 +244,11 @@ cargo flamegraph --dev
 > echo 0 | sudo tee /proc/sys/kernel/kptr_restrict
 >```
 >
+
+## perf
+
+> [!TIP]
+> [Tutorial about perf install/using](http://lost-and-found-narihiro.blogspot.com/2012/06/how-to-install-perf-kernel-performance.html)
 
 ## garbage
 
